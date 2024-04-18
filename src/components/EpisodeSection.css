@@ -1,0 +1,19 @@
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    flex-direction: row; /* Coloca los elementos en una fila horizontal */
+  }
+  
+      
+  .contenedor-pequeno {
+    background-color: var(--Primario);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px; /* Ajusta el margen entre los contenedores pequeños */
+    width: calc(25% - 30px); /* Calcula el ancho para que haya 5 contenedores por fila */
+    box-sizing: border-box; /* Asegura que el ancho incluya el relleno y el borde */
+  }
+  

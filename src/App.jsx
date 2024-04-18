@@ -1,15 +1,9 @@
 import "./App.css";
+import shuffleArray from "./Funtion.js";
 import Card from "./components/Card";
 import React, { useEffect, useState } from "react";
 
-function shuffleArray(array) {
-  // Algoritmo de mezcla de Fisher-Yates
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+
 
 function App() {
   const [user, setuser] = useState([]);

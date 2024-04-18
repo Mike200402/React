@@ -10,7 +10,6 @@ import "./CharacterSection.css";
             <button className="botones" key={user.status}>
             {user.status}</button>
         </div>
-  
         <p>{user.name}</p>
       </div>
     );

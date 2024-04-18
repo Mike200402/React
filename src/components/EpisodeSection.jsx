@@ -4,14 +4,21 @@ import "./EpisodeSection.css";
   const EpisodeSection = ({ user }) => {
     return (
       <div className="contenedor">
-        <img src={user.image} alt={`avatar de ${user.name}`}></img>
-
-        <div className="buttons">
-            <button className="botones" key={user.status}>
-            {user.status}</button>
+        <div className="contenedor-pequeno">
+          <p>{user.species}</p>
         </div>
-  
-        <p>{user.species}</p>
+        <div className="contenedor-pequeno">
+          <p>{user.name}</p>
+        </div>
+        <div className="contenedor-pequeno">
+          <p>{user.species}</p>
+        </div>
+        <div className="contenedor-pequeno">
+          <p>{user.species}</p>
+        </div>
+        <div className="contenedor-pequeno">
+          <p>{user.species}</p>
+        </div>
       </div>
     );
   };
