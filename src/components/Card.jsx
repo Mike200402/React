@@ -10,7 +10,7 @@ const Card = (props) => {
   return (
     <div className="card">
       <UserDetails user={user} />
-      <ButtonSection socialLinks={socialLinks} />
+      {/* <ButtonSection socialLinks={socialLinks} /> */}
     </div>
   );
 };
