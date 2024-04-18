@@ -14,7 +14,7 @@ function shuffleArray(array) {
 function App() {
   const [user, setuser] = useState([]);
 
-  const [numberOfCards, setNumberOfCards] = useState(10); // Define el número deseado de cartas
+  const [numberOfCards, setNumberOfCards] = useState(1); // Define el número deseado de cartas
   
   useEffect(() => {
     fetch("https://rickandmortyapi.com/api/character")
