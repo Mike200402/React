@@ -1,54 +1,45 @@
 import "./App.css";
-import shuffleArray from "./Funtion.js";
-import CardAll from "./components/CardAll";
+import CharacterSection from "./components/CharacterSection";
 import React, { useEffect, useState } from "react";
 
-
-
 function App() {
-  const [user, setuser] = useState([]);
-  const [rickAndMortyData, setRickAndMortyData] = useState([]);
-  const [numberOfCards, setNumberOfCards] = useState(1); // Define el número deseado de cartas
-  const [numberOfCards1, setNumberOfCards1] = useState(1); // Define el número deseado de cartas
-  
+  const [character, setCharacter] = useState([]);
+  const [episodes, setEpisodes] = useState([]);
+
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character")
-      .then((Response) => {
-        return Response.json();
-      })
+    fetch("https://rickandmortyapi.com/api/character/2")
+      .then((Response) => Response.json())
       .then((data) => {
-        setuser(data.results);
-        console.log(data.results);
+        setCharacter(data);
+        console.log(data);
+        fetchEpisodes(data.episode.slice(0, 5)); // Obtener los primeros 4 episodios
       });
   }, []);
 
-  useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/episode")
-      .then((Response) => {
-        return Response.json();
+  const fetchEpisodes = (episodesUrls) => {
+    const promesas = episodesUrls.map((url) =>
+      fetch(url).then((response) => response.json())
+    );
+
+    Promise.all(promesas)
+      .then((episodios) => {
+        setEpisodes(episodios);
+        console.log(episodios);
       })
-      .then((data) => {
-        setRickAndMortyData(data.results);
-        console.log(data.results);
-      });
-  }, []);
-
-  // Mezcla los usuarios de manera aleatoria
-  const shuffledUsers = shuffleArray(user);
-  const shuffledEpisodes = shuffleArray(rickAndMortyData);
-
-  // Utiliza slice para limitar la cantidad de cartas mostradas
-  const limitedUsers = shuffledUsers.slice(0, numberOfCards);
-  const limitedEpisodes = shuffledEpisodes.slice(0, numberOfCards1);
+      .catch((error) => console.error(error));
+  };
 
   return (
     <>
-      {limitedEpisodes.map((episode) => (
-        <CardAll key={episode.id} episode={episode} user={limitedUsers[0]} />
-      ))}
+      {character && (
+        <CharacterSection
+          key={character.id}
+          character={character}
+          episodes={episodes}
+        />
+      )}
     </>
   );
-  
 }
 
-export default App; 
+export default App;
