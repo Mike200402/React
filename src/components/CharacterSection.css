@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--Grey);
+  background-color: var(--Dark-Grey);
   width: 40rem;
   height: 65rem;
   border-radius: 1rem;
@@ -21,7 +21,7 @@
 
 .principal img {
   height: 80%;
-  width: 100%;
+  width: 80%;
   object-fit: cover;
 }
 
@@ -68,6 +68,7 @@
 
 .texto-secundario {
   padding-left: 3rem;
+  color: var(--Primario);
 }
 
 .episode {
@@ -78,6 +79,8 @@
   overflow-x: auto;
   align-items: start;
   gap: 0.2rem;
+  scrollbar-width: thin; /* Ancho del scrollbar */
+  scrollbar-color: var(--Primario) var(--Dark-Grey); /* Color del scrollbar */
 }
 
 .episode p {
@@ -89,7 +92,8 @@
   flex-direction: column;
   width: 9rem;
   height: 10rem;
-  border: 1px solid gray;
+  border: 1px;
+  background-color: var(--Dark-Grey);
   text-align: center;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -100,7 +104,7 @@
 }
 
 .button {
-  width: 40%;
+  width: 100%;
   background-color: var(--Off-Black);
   border: none;
   box-shadow: none;

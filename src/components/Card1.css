@@ -1,0 +1,28 @@
+.card1 {
+  padding: 20px;
+  background-color: var(--Dark-Grey);
+  width: 26.7rem;
+  height: fit-content;
+  border-radius: 0.5rem;
+  margin-bottom: 20px; 
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  margin: 20px;
+}
+  .nav-link {
+    text-decoration: none; /* Esto quita el subrayado */
+  }
+  /* Estilos */
+  
+  @media screen and (min-width: 1440px) {
+    .card1 {
+      width: 33.2rem;
+      height: fit-content;
+      padding: 3.5rem;
+      border-radius: 1rem;
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: space-between; 
+    }
+  }

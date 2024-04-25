@@ -1,6 +1,6 @@
 import React from "react";
 import "./CharacterSection.css";
-
+import { NavLink } from "react-router-dom";
 const CharacterSection = ({ character, episodes }) => {
   const getStatusClassName = () => {
     switch (character.status) {
@@ -39,8 +39,9 @@ const CharacterSection = ({ character, episodes }) => {
             ))}
           </div>
         </div>
-
+        <NavLink to="/">
         <button className="button">Home</button>
+        </NavLink>
       </div>
     </>
   );

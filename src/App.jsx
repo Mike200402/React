@@ -1,43 +1,15 @@
 import "./App.css";
-import CharacterSection from "./components/CharacterSection";
 import React, { useEffect, useState } from "react";
+import Navigation from "./routes/Navigation";
+import Home from "./components/Home";
+import RickAndMortyApp from "./RickAndMortyApp";
 
 function App() {
-  const [character, setCharacter] = useState([]);
-  const [episodes, setEpisodes] = useState([]);
-
-  useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character/2")
-      .then((Response) => Response.json())
-      .then((data) => {
-        setCharacter(data);
-        console.log(data);
-        fetchEpisodes(data.episode.slice(0, 5)); // Obtener los primeros 4 episodios
-      });
-  }, []);
-
-  const fetchEpisodes = (episodesUrls) => {
-    const promesas = episodesUrls.map((url) =>
-      fetch(url).then((response) => response.json())
-    );
-
-    Promise.all(promesas)
-      .then((episodios) => {
-        setEpisodes(episodios);
-        console.log(episodios);
-      })
-      .catch((error) => console.error(error));
-  };
-
   return (
     <>
-      {character && (
-        <CharacterSection
-          key={character.id}
-          character={character}
-          episodes={episodes}
-        />
-      )}
+      <Navigation/>
+      {/* <Home/> */}
+      {/* <RickAndMortyApp/> */}
     </>
   );
 }
